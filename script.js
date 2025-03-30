@@ -23,11 +23,14 @@ window.addEventListener("DOMContentLoaded",()=>{
         let td1 = document.createElement("td");
         let td2 = document.createElement("td");
         td1.textContent =`Promise ${index+1}`;
-        td2.textContent=String(result[index]).charAt(0);
+        td2.textContent=data;
         tr.appendChild(td1)
         tr.appendChild(td2);
         output.appendChild(tr)
-        total+=Number(result[index]);
+    if(total<Number(result[index])){
+        total=Number(result[index]);
+        }
+		
     });
 
      let trtotal = document.createElement("tr");
@@ -48,13 +51,13 @@ window.addEventListener("DOMContentLoaded",()=>{
 function randomPromise(time,promise){
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-            resolve(`${String(time).charAt(0)}`)
+            resolve(`${time}`)
         },time)
     })
 }
 
-let promise1 = new randomPromise(3000,"Promise1")
-let promise2 = new randomPromise(2000,"Promise2")
+let promise1 = new randomPromise(1000,"Promise1")
+let promise2 = new randomPromise(1000,"Promise2")
 let promise3 = new randomPromise(1000,"Promise3");
 
 
